@@ -8,4 +8,4 @@ Stochastic Computing for Deep Neural Networks
 ## Documentation 
 Interim Report: Introduction to Stochastic Computing for Deep Neural Networks 
 
-Resources: List of relevant resources
+[Resources](https://github.com/adamosSol/SC-DNN/blob/master/Resources.md): List of relevant resources
