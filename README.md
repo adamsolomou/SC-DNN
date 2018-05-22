@@ -8,6 +8,6 @@ This repository provides source code and documentation for the implementation of
 ### macOS
 
 ## Documentation 
-Interim Report: Introduction to Stochastic Computing for Deep Neural Networks 
+Report: Detailed analysis and evaluation  
 
 [Resources](https://github.com/adamosSol/SC-DNN/blob/master/Resources.md): List of relevant resources
