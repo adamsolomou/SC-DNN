@@ -3,6 +3,7 @@
 
 # csv files
 data/*.csv
+results/*.eps
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
