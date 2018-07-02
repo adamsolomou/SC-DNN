@@ -14,37 +14,38 @@ def main():
     softmax = lambda s: s / np.sum(s, axis=1, dtype=np.float64, keepdims=True)
 
     # SC network parameters 
-    len_lst = [pow(2,5),pow(2,8),pow(2,11),pow(2,13),pow(2,14),pow(2,15),pow(2,16),pow(2,17)]
+    # len_lst = [pow(2,5),pow(2,8),pow(2,11),pow(2,13),pow(2,14),pow(2,15),pow(2,16),pow(2,17)]
+    len_lst = [pow(2,17)]
 
     l1_params = {
         'matmul_inp': 1,     # Matric multiplication input scaling 
         'matmul_int': None,  # Matrix multiplication intermediate scaling
-        'matmul_out': 1024,  # Matrix multiplication output scaling (UNUSED internally)
-        'matmul_nod': None,  # Number of sub dot products in matrix multiplication 
-        'matmul_usc': False, # Upscale the result of matrix multiplication
-        'matmul_gint':None,  # Gain factor for intermediate dot products
+        'matmul_out': 1024,  # Matrix multiplication output scaling 
+        'matmul_nod': None,  # Number of nodes in dot product decomposition
+        'matmul_usc': True,  # Upscale the result of matrix multiplication
+        'matmul_gint':32,    # Gain factor for intermediate dot products
         'matmul_gout':None,  # Gain factor for the output of dot product   
-        'matadd_inp': 1024,  # Matrix addition input scaling
-        'matadd_out': 2048,  # Matrix addition output scaling 
-        'matadd_usc': False  # Upscale the result of matrix addition
+        'matadd_inp': 32,    # Matrix addition input scaling
+        'matadd_out': 32,    # Matrix addition output scaling 
+        'matadd_usc': True   # Upscale the result of matrix addition
     }
 
     lo_params = {
-        'matmul_inp': 2048,  # Matrix multiplication input scaling
-        'matmul_int': None,  # Matrix multiplication intermediate scaling (32 * 16) / 16 ~ sum of (decomposed) weights 
-        'matmul_out': 131072,# Matrix multiplication output scaling
-        'matmul_nod': None,  # Number of sub dot products in matrix multiplication 
-        'matmul_usc': False, # Upscale the result of matrix multiplication
-        'matmul_gint':None,  # Gain factor for intermediate dot products
+        'matmul_inp': 32,    # Matrix multiplication input scaling
+        'matmul_int': None,  # Matrix multiplication intermediate scaling 
+        'matmul_out': 2048,  # Matrix multiplication output scaling
+        'matmul_nod': None,  # Number of nodes in dot product decomposition
+        'matmul_usc': True,  # Upscale the result of matrix multiplication
+        'matmul_gint':8,     # Gain factor for intermediate dot products
         'matmul_gout':None,  # Gain factor for the output of dot product 
-        'matadd_inp': 131072,# Matrix addition input scaling
-        'matadd_out': 262144,# Matrix addition output scaling 
-        'matadd_usc': False  # Upscale the result of matrix addition
+        'matadd_inp': 256,   # Matrix addition input scaling
+        'matadd_out': 256,   # Matrix addition output scaling 
+        'matadd_usc': True   # Upscale the result of matrix addition
     }
 
     # Load data 
-    X = np.genfromtxt('../../../data/features.csv', delimiter=',')
-    Y = np.genfromtxt('../../../data/labels.csv',   delimiter=',')
+    features = np.genfromtxt('../../../data/features.csv', delimiter=',')
+    labels = np.genfromtxt('../../../data/labels.csv',   delimiter=',')
 
     # Load trained coefficients 
     weights = {
@@ -126,14 +127,14 @@ def main():
         print("Testing Accuracy: ", accuracy)
 
     # Plot the results
-    float_net_accuracy = 0.870455
-    float_net_accuracy_lst = np.ones(len(len_lst),dtype=np.float64)*float_net_accuracy
-    plt.semilogx(np.array(len_lst),np.array(accuracy_lst),basex=2)
-    plt.semilogx(np.array(len_lst),float_net_accuracy_lst,color='r',basex=2)
-    plt.title('Classification Accuracy versus Bit-Stream length')
-    plt.ylabel('Classification Accuracy')
-    plt.xlabel('Bit-Stream Length')
-    plt.grid(True)
+    # float_net_accuracy = 0.870455
+    # float_net_accuracy_lst = np.ones(len(len_lst),dtype=np.float64)*float_net_accuracy
+    # plt.semilogx(np.array(len_lst),np.array(accuracy_lst),basex=2)
+    # plt.semilogx(np.array(len_lst),float_net_accuracy_lst,color='r',basex=2)
+    # plt.title('Classification Accuracy versus Bit-Stream length')
+    # plt.ylabel('Classification Accuracy')
+    # plt.xlabel('Bit-Stream Length')
+    # plt.grid(True)
 
 if __name__ == "__main__":    
     main()

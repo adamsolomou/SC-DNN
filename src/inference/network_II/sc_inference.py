@@ -43,8 +43,8 @@ def main():
     }
 
     # Load data 
-    X = np.genfromtxt('../../../data/features.csv', delimiter=',')
-    Y = np.genfromtxt('../../../data/labels.csv',   delimiter=',')
+    features = np.genfromtxt('../../../data/features.csv', delimiter=',')
+    labels = np.genfromtxt('../../../data/labels.csv',   delimiter=',')
 
     # Load trained coefficients 
     weights = {
