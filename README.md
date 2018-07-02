@@ -9,6 +9,5 @@ This repository provides source code and documentation for the implementation of
 ### macOS
 
 ## Documentation 
-Report: Analysis and evaluation
 
 [Resources](https://github.com/adamosSol/SC-DNN/blob/master/Resources.md): List of relevant resources
