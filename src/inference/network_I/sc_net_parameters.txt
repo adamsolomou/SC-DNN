@@ -1,0 +1,84 @@
+"""
+SC network parameters. Currenlty, they need to be manually modified for each scenario by the user. 
+"""
+
+# Scenario 1
+l1_params = {
+    'matmul_inp': 1,     # Matric multiplication input scaling 
+    'matmul_int': None,  # Matrix multiplication intermediate scaling
+    'matmul_out': 1024,  # Matrix multiplication output scaling 
+    'matmul_nod': None,  # Number of nodes in dot product decomposition
+    'matmul_usc': False, # Upscale the result of matrix multiplication
+    'matmul_gint':None,  # Gain factor for intermediate dot products
+    'matmul_gout':None,  # Gain factor for the output of dot product   
+    'matadd_inp': 1024,  # Matrix addition input scaling
+    'matadd_out': 2048,  # Matrix addition output scaling 
+    'matadd_usc': False  # Upscale the result of matrix addition
+}
+
+lo_params = {
+    'matmul_inp': 2048,  # Matrix multiplication input scaling
+    'matmul_int': None,  # Matrix multiplication intermediate scaling 
+    'matmul_out': 131072,# Matrix multiplication output scaling
+    'matmul_nod': None,  # Number of nodes in dot product decomposition
+    'matmul_usc': False, # Upscale the result of matrix multiplication
+    'matmul_gint':None,  # Gain factor for intermediate dot products
+    'matmul_gout':None,  # Gain factor for the output of dot product 
+    'matadd_inp': 131072,# Matrix addition input scaling
+    'matadd_out': 262144,# Matrix addition output scaling 
+    'matadd_usc': False  # Upscale the result of matrix addition
+}
+
+# Scenario 2
+l1_params = {
+    'matmul_inp': 1,     # Matric multiplication input scaling 
+    'matmul_int': None,  # Matrix multiplication intermediate scaling
+    'matmul_out': 1024,  # Matrix multiplication output scaling 
+    'matmul_nod': None,  # Number of nodes in dot product decomposition
+    'matmul_usc': True,  # Upscale the result of matrix multiplication
+    'matmul_gint':32,    # Gain factor for intermediate dot products
+    'matmul_gout':None,  # Gain factor for the output of dot product   
+    'matadd_inp': 32,    # Matrix addition input scaling
+    'matadd_out': 32,    # Matrix addition output scaling 
+    'matadd_usc': True   # Upscale the result of matrix addition
+}
+
+lo_params = {
+    'matmul_inp': 32,    # Matrix multiplication input scaling
+    'matmul_int': None,  # Matrix multiplication intermediate scaling 
+    'matmul_out': 2048,  # Matrix multiplication output scaling
+    'matmul_nod': None,  # Number of nodes in dot product decomposition
+    'matmul_usc': True,  # Upscale the result of matrix multiplication
+    'matmul_gint':8,     # Gain factor for intermediate dot products
+    'matmul_gout':None,  # Gain factor for the output of dot product 
+    'matadd_inp': 256,   # Matrix addition input scaling
+    'matadd_out': 256,   # Matrix addition output scaling 
+    'matadd_usc': True   # Upscale the result of matrix addition
+}
+
+# Scenario 3
+l1_params = {
+    'matmul_inp': 1,     # Matric multiplication input scaling 
+    'matmul_int': 128,   # Matrix multiplication intermediate scaling
+    'matmul_out': 32,    # Matrix multiplication output scaling (UNUSED in this scenario)
+    'matmul_nod': 8,     # Number of nodes in dot product decomposition
+    'matmul_usc': True,  # Upscale the result of matrix multiplication
+    'matmul_gint':4,     # Gain factor for intermediate dot products
+    'matmul_gout':8,     # Gain factor for the output of dot product   
+    'matadd_inp': 32,    # Matrix addition input scaling
+    'matadd_out': 32,    # Matrix addition output scaling 
+    'matadd_usc': True   # Upscale the result of matrix addition
+}
+
+lo_params = {
+    'matmul_inp': 32,    # Matrix multiplication input scaling
+    'matmul_int': 512,   # Matrix multiplication intermediate scaling 
+    'matmul_out': 128,   # Matrix multiplication output scaling (UNUSED in this scenario)
+    'matmul_nod': 4,     # Number of nodes in dot product decomposition
+    'matmul_usc': True,  # Upscale the result of matrix multiplication
+    'matmul_gint':4,     # Gain factor for intermediate dot products
+    'matmul_gout':2,     # Gain factor for the output of dot product 
+    'matadd_inp': 256,   # Matrix addition input scaling
+    'matadd_out': 256,   # Matrix addition output scaling 
+    'matadd_usc': True   # Upscale the result of matrix addition
+}
