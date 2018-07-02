@@ -7,6 +7,12 @@ This repository provides source code and documentation for the implementation of
 
 ### macOS
 
+## User Guide
+
+The script `scripts\load_mnist.py` loads the normalised MNIST dataset used for inference purposes. While being the `SC-DNN\` directory run 
+
+make all
+
 ## Documentation
 [Report](https://github.com/adamosSol/SC-DNN/blob/master/docs/Report.pdf): Analysis and evaluation  
 
