@@ -17,6 +17,8 @@ This saves the testing data features and labels in the `data/` directory.
 
 The directory `src/inference` contains the implementation of several SC processing elements in `src/inference/function_blocks.py` as well as the implementation of the scaling operations in `src/inference/scaling_ops.py` that are used to determine signal scalings in the SC network graph. The directories `src/inference/network_I` and `src/inference/network_II` contain trained coefficients for the two test-case networks studied in the [Report](https://github.com/adamosSol/SC-DNN/blob/master/docs/Report.pdf). 
 
+The code in `fp_inference.py` runs a forward propagation of the trained network in floating point arithmetic. The script `compute_scalings.py` computes the worst-case scaling parameters based on the trained coefficients whereas `signal_values.py` finds internal signal values and plots histograms in each layer, that can be used to determine scaling values for saturation arithmetic. The code in `sc_inference.py` runs a forward propagation of the trained network in stochastic arithmetic. Note that currently, network's parameters need to be manually imposed by the user. The numerical values for the parameters used in each experiment are listed in `sc_net_parameters.txt`
+
 ## Documentation
 [Report](https://github.com/adamosSol/SC-DNN/blob/master/docs/Report.pdf): Analysis and evaluation  
 
