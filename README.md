@@ -5,7 +5,9 @@ This repository provides source code and documentation for the implementation of
 
 ## User Guide
 
-The script `scripts/load_mnist.py` loads the normalised MNIST dataset used for inference purposes. While being the `SC-DNN/` directory run (after you have installed requirements)
+Install dependencies listed in [requirements](https://github.com/adamosSol/SC-DNN/blob/master/requirements.txt). 
+
+The script `scripts/load_mnist.py` loads the normalised MNIST dataset used for inference purposes. While being the `SC-DNN/` directory run 
 
     python scripts/load_mnist.py 
 
@@ -17,17 +19,13 @@ The code in `fp_inference.py` runs a forward propagation of the trained network 
 
 To run any of these scripts navigate to the corresponding repository and execute 
 
-    python xyz.py 
+    python <name of script>
     
-Note that if you try to execute a script that uses the function `scalar_next_int_power_of_2(x)` in `scaling_ops.py` while being in the TensorFlow environment will (most likely) raise an AttributeError: 'float' object has no attribute 'bit_length'. To deal with this, deactivate the TensorFlow environment and run the code again (Feel free to propose alternative solutions).  
+Note that if you try to execute a script that uses the function `scalar_next_int_power_of_2(x)` in `scaling_ops.py` while being in the TensorFlow environment, it will (most likely) raise an AttributeError: 'float' object has no attribute 'bit_length'. To deal with this, deactivate the TensorFlow environment and run the code again (Feel free to propose alternative solutions).  
 
-The directory `src/training` contains source code for training SC compatible neural networks. Alternative matrix multiplication and addition procedures are implemented in `src/training/sc_train_creg.py` and `src/training/sc_train_l2reg.py`, to realize the proposed SC neuron architecture. The two Python files train a single hidden layer network on the MNIST dataset employing different regularization techniques. For these examples, an optimal regularization scale (mainly for L2 regularization) was found empirically. To execute any of these scripts, activate the TensorFlow environment and run 
-
-    python sc_train_creg.py 
-    
-or 
-
-    python sc_train_l2reg.py 
+The directory `src/training` contains source code for training SC compatible neural networks. Alternative matrix multiplication and addition procedures are implemented in `src/training/sc_train_creg.py` and `src/training/sc_train_l2reg.py`, to realize the proposed SC neuron architecture. The two Python files train a single hidden layer network on the MNIST dataset employing different regularization techniques. For these examples, an optimal regularization scale (mainly for L2 regularization) was found empirically. 
 
 ## Documentation
 [Resources](https://github.com/adamosSol/SC-DNN/blob/master/Resources.md): List of relevant resources
+
+[Presentation](https://github.com/adamosSol/SC-DNN/blob/master/docs/Presentation.pdf): A brief presentation 
