@@ -219,8 +219,8 @@ def add(x,y,s_in,upscale=False,s_out=None):
 
 
     # Perform addition with the re-scaled bit-streams
-    select_prob = 0
-    select_line = sng(select_prob,x.size)
+    select_val  = 0
+    select_line = sng(select_val,x.size)
 
     x_plus_y = np.empty(x.size, dtype=np.int8)
     x_plus_y[select_line==0] = y_rescaled[select_line==0]
@@ -276,17 +276,17 @@ def sc_matvec_add(X,b,s_in,upscale=False):
     B_sc = mat_sng(scaled_B,no_samples)
 
     # Initialise the output array
-    Y = np.empty((x_rows,x_cols,no_samples),dtype=np.int8)
+    y = np.empty((x_rows,x_cols,no_samples),dtype=np.int8)
 
     # Use the two input scaled adder iteratively
     for row_idx in range(x_rows):
         for col_idx in range(x_cols):
-            Y[row_idx,col_idx,:] = add(X[row_idx,col_idx,:],
-                                              B_sc[row_idx,col_idx,:],
-                                              np.array([s_in,b_scalings[col_idx]]),
-                                              upscale)
+            y[row_idx,col_idx,:] = add(X[row_idx,col_idx,:],
+                                       B_sc[row_idx,col_idx,:],
+                                       np.array([s_in,b_scalings[col_idx]]),
+                                       upscale)
 
-    return Y
+    return y
 
 def dot(x,w,s_in,s_out,upscale=False,gain=None):
     """
@@ -304,7 +304,9 @@ def dot(x,w,s_in,s_out,upscale=False,gain=None):
 
     Returns 
     -------
-    1D NumPy array holding the output bit-stream
+    A float representing the value of the output stochastic bit-stream. Normally, 
+    a stochastic bit-stream should be returned. However, a float is return to allow
+    the use of multiprocessing.Queue() in sc_matmul().
     """
     (no_inputs, no_samples) = x.shape
 
@@ -336,7 +338,7 @@ def dot(x,w,s_in,s_out,upscale=False,gain=None):
     rescale_ratio = curr_scaling/s_out
     y_downscaled = multiply(y,rescale_ratio)
 
-    # Apply saturation arithmetic 
+    # Saturation arithmetic 
     if(upscale):
         states = 32
         if(gain==32):

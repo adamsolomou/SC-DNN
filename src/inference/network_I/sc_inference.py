@@ -14,8 +14,7 @@ def main():
     softmax = lambda s: s / np.sum(s, axis=1, dtype=np.float64, keepdims=True)
 
     # SC network parameters 
-    # len_lst = [pow(2,5),pow(2,8),pow(2,11),pow(2,13),pow(2,14),pow(2,15),pow(2,16),pow(2,17)]
-    len_lst = [pow(2,17)]
+    len_lst = [pow(2,5),pow(2,8),pow(2,11),pow(2,13),pow(2,14),pow(2,15),pow(2,16),pow(2,17)]
 
     l1_params = {
         'matmul_inp': 1,     # Matric multiplication input scaling 
@@ -127,14 +126,14 @@ def main():
         print("Testing Accuracy: ", accuracy)
 
     # Plot the results
-    # float_net_accuracy = 0.870455
-    # float_net_accuracy_lst = np.ones(len(len_lst),dtype=np.float64)*float_net_accuracy
-    # plt.semilogx(np.array(len_lst),np.array(accuracy_lst),basex=2)
-    # plt.semilogx(np.array(len_lst),float_net_accuracy_lst,color='r',basex=2)
-    # plt.title('Classification Accuracy versus Bit-Stream length')
-    # plt.ylabel('Classification Accuracy')
-    # plt.xlabel('Bit-Stream Length')
-    # plt.grid(True)
+    float_net_accuracy = 0.870455
+    float_net_accuracy_lst = np.ones(len(len_lst),dtype=np.float64)*float_net_accuracy
+    plt.semilogx(np.array(len_lst),np.array(accuracy_lst),basex=2)
+    plt.semilogx(np.array(len_lst),float_net_accuracy_lst,color='r',basex=2)
+    plt.title('Classification Accuracy versus Bit-Stream length')
+    plt.ylabel('Classification Accuracy')
+    plt.xlabel('Bit-Stream Length')
+    plt.grid(True)
 
 if __name__ == "__main__":    
     main()
