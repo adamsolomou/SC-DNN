@@ -26,7 +26,7 @@ Note that if you try to execute a script that uses the function `scalar_next_int
 The directory `src/training` contains source code for training SC compatible neural networks. Alternative matrix multiplication and addition procedures are implemented in `src/training/sc_train_creg.py` and `src/training/sc_train_l2reg.py`, to realize the proposed SC neuron architecture. The two Python files train a single hidden layer network on the MNIST dataset employing different regularization techniques. For these examples, an optimal regularization scale (mainly for L2 regularization) was found empirically. 
 
 ## Documentation
-[Resources](https://github.com/adamosSol/SC-DNN/blob/master/Resources.md): List of relevant resources
+[Resources](https://github.com/adamosSol/SC-DNN/blob/master/docs/Resources.md): List of relevant resources
 
 [Report](https://github.com/adamosSol/SC-DNN/blob/master/docs/Report.pdf): MEng Thesis 
 
