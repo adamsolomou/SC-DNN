@@ -28,4 +28,6 @@ The directory `src/training` contains source code for training SC compatible neu
 ## Documentation
 [Resources](https://github.com/adamosSol/SC-DNN/blob/master/Resources.md): List of relevant resources
 
+[Report](https://github.com/adamosSol/SC-DNN/blob/master/docs/Report.pdf): MEng Thesis 
+
 [Presentation](https://github.com/adamosSol/SC-DNN/blob/master/docs/Presentation.pdf): A brief presentation 
