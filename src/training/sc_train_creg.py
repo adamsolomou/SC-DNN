@@ -99,7 +99,7 @@ def sc_matmul(x,w,s_in,upscale=False,gain=None):
     # Apply gain followed by saturation 
     if(upscale): 
         z_upscaled = tf.multiply(z,gain)
-        new_scale = tf.div(curr_scale,gain)
+        new_scale = tf.div(curr_scale,gain+1e-6)
     else:
         z_upscaled = z
         new_scale = curr_scale
